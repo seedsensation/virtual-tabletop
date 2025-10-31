@@ -9,11 +9,11 @@ public partial class CharacterSheet : Node
 }
 
 public class SheetTemplate {
-    int id;
+	int id;
 
 
 
-    public SheetTemplate() {
+	public SheetTemplate() {
 
-    }
+	}
 }
