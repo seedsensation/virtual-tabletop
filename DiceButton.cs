@@ -8,21 +8,22 @@ public partial class DiceButton : Button
 	[Export]
 	public int counter;
 
-	public void counterChange(InputEventMouseButton mouseButton)
+	public void counterChange(InputEvent inputEvent)
 	{
-		if (mouseButton.IsReleased())
-		{
-			if (mouseButton.ButtonIndex == MouseButton.Left)
+		if (inputEvent is InputEventMouseButton mouseEvent)
+			if (mouseEvent.IsReleased())
 			{
-			counter++;
-			GD.Print(counter);
+				if (mouseEvent.ButtonIndex == MouseButton.Left)
+				{
+				counter++;
+				GD.Print(counter);
+				}
+				else if (mouseEvent.ButtonIndex == MouseButton.Right && counter > 0)
+				{
+				counter--;
+				GD.Print(counter);
+				}
 			}
-			else if (mouseButton.ButtonIndex == MouseButton.Right && counter > 0)
-			{
-			counter--;
-			GD.Print(counter);
-			}
-		}
 		
 
 	}
