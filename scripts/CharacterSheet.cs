@@ -9,10 +9,18 @@ public partial class CharacterSheet : Node
 {
 	public override void _Ready() {
 		SheetTemplate test = new SheetTemplate();
-		test.fields.Add(new Field("aw","beans"));
-		test.fields.Add(new Field("yeah",1));
+		test.fields.Add(new Field("aw",SheetType.TypeString));
+		test.fields.Add(new Field("yeah",SheetType.TypeInt));
 		GD.Print(JsonSerializer.Serialize(test));
 	}
+}
+
+public enum SheetType {
+    TypeInt,
+    TypeFloat,
+    TypeString,
+    TypeBool,
+    TypeDepletable,
 }
 
 public class SheetTemplate {
@@ -30,12 +38,12 @@ public class SheetTemplate {
 
 public class Field {
 	public int id {get; set;}
+    public SheetType type {get; set;}
 	public string title {get; set;}
-	public object data {get; set;}
 
-	public Field(string title, object data) {
+	public Field(string title, SheetType type) {
 		this.id = new Random().Next();
 		this.title = title;
-		this.data = data;
+        this.type = type;
 	}
 }
