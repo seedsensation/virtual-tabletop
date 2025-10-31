@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://biixxap4hevbm"]
+[gd_scene load_steps=2 format=3 uid="uid://biixxap4hevbm"]
+
+[ext_resource type="Script" uid="uid://4g7wvexoycg5" path="res://scripts/SheetCreatorPanel.cs" id="1_y26ic"]
 
 [node name="Panel" type="Panel"]
 offset_right = 358.0
 offset_bottom = 99.0
+script = ExtResource("1_y26ic")
 
 [node name="FieldType" type="OptionButton" parent="."]
 layout_mode = 0
@@ -11,12 +14,21 @@ offset_top = 58.0
 offset_right = 141.0
 offset_bottom = 89.0
 selected = 0
-item_count = 2
+fit_to_longest_item = false
+item_count = 6
 popup/item_0/text = "Field Type"
-popup/item_0/id = 0
+popup/item_0/id = 6
 popup/item_0/disabled = true
-popup/item_1/text = "String"
-popup/item_1/id = 1
+popup/item_1/text = "Integer"
+popup/item_1/id = 0
+popup/item_2/text = "Float"
+popup/item_2/id = 1
+popup/item_3/text = "String"
+popup/item_3/id = 2
+popup/item_4/text = "Bool"
+popup/item_4/id = 3
+popup/item_5/text = "Depletable"
+popup/item_5/id = 4
 
 [node name="Title" type="TextEdit" parent="."]
 layout_mode = 0
@@ -33,3 +45,5 @@ offset_top = 60.0
 offset_right = 336.0
 offset_bottom = 91.0
 text = "Type Placeholder Here"
+
+[connection signal="item_selected" from="FieldType" to="." method="ItemSelected"]
