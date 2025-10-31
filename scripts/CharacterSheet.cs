@@ -16,11 +16,11 @@ public partial class CharacterSheet : Node
 }
 
 public enum SheetType {
-    TypeInt,
-    TypeFloat,
-    TypeString,
-    TypeBool,
-    TypeDepletable,
+	TypeInt,
+	TypeFloat,
+	TypeString,
+	TypeBool,
+	TypeDepletable,
 }
 
 public class SheetTemplate {
@@ -38,12 +38,12 @@ public class SheetTemplate {
 
 public class Field {
 	public int id {get; set;}
-    public SheetType type {get; set;}
+	public SheetType type {get; set;}
 	public string title {get; set;}
 
 	public Field(string title, SheetType type) {
 		this.id = new Random().Next();
 		this.title = title;
-        this.type = type;
+		this.type = type;
 	}
 }

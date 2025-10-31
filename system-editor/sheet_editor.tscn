@@ -1,19 +1,23 @@
-[gd_scene format=3 uid="uid://svmictxdpcya"]
+[gd_scene load_steps=2 format=3 uid="uid://svmictxdpcya"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lekay"]
+font_size = 36
 
 [node name="Sheet Editor" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = 72.0
-offset_right = -6.0
-offset_bottom = 72.0
+offset_top = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Character sheet editor template"
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 254.61499
+offset_bottom = 122.0
+text = "Sheet Editor"
+label_settings = SubResource("LabelSettings_lekay")

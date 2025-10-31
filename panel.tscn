@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://biixxap4hevbm"]
+
+[node name="Panel" type="Panel"]
+offset_right = 358.0
+offset_bottom = 99.0
+
+[node name="FieldType" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 58.0
+offset_right = 141.0
+offset_bottom = 89.0
+selected = 0
+item_count = 2
+popup/item_0/text = "Field Type"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "String"
+popup/item_1/id = 1
+
+[node name="Title" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 345.0
+offset_bottom = 48.0
+placeholder_text = "Field Name"
+
+[node name="Demonstration" type="Label" parent="."]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 60.0
+offset_right = 336.0
+offset_bottom = 91.0
+text = "Type Placeholder Here"
