@@ -35,32 +35,43 @@ script = ExtResource("1_fyqef")
 [node name="Roll_Button" type="Button" parent="Button/Dice_Interface"]
 layout_mode = 0
 offset_left = 74.0
-offset_top = 389.0
+offset_top = 451.0
 offset_right = 161.0
-offset_bottom = 446.0
+offset_bottom = 508.0
 text = "Roll!"
 script = ExtResource("2_m6e0p")
 
 [node name="D20_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
 layout_mode = 0
 offset_left = -1.0
-offset_top = -383.0
+offset_top = -445.0
 offset_right = 86.0
-offset_bottom = -326.0
+offset_bottom = -388.0
 action_mode = 0
 button_mask = 3
 text = "D20"
 script = ExtResource("3_27fn8")
+diceType = 20
 
 [node name="D12_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
 layout_mode = 0
-offset_top = -317.0
+offset_top = -379.0
 offset_right = 87.0
-offset_bottom = -260.0
+offset_bottom = -322.0
 text = "D12
 "
 script = ExtResource("3_27fn8")
 diceType = 12
+
+[node name="D10_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -317.0
+offset_right = 86.0
+offset_bottom = -260.0
+text = "D10"
+script = ExtResource("3_27fn8")
+diceType = 10
 
 [node name="D8_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
 layout_mode = 0
@@ -102,8 +113,10 @@ text = "DX"
 script = ExtResource("3_27fn8")
 
 [connection signal="button_up" from="Button" to="Button/Dice_Interface" method="toggleVisibility"]
+[connection signal="button_up" from="Button/Dice_Interface/Roll_Button" to="Button/Dice_Interface/Roll_Button" method="rollDice"]
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D20_Button" to="Button/Dice_Interface/Roll_Button/D20_Button" method="counterChange"]
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D12_Button" to="Button/Dice_Interface/Roll_Button/D12_Button" method="counterChange"]
+[connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D10_Button" to="Button/Dice_Interface/Roll_Button/D10_Button" method="counterChange"]
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D8_Button" to="Button/Dice_Interface/Roll_Button/D8_Button" method="counterChange"]
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D6_Button" to="Button/Dice_Interface/Roll_Button/D6_Button" method="counterChange"]
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D4_Button" to="Button/Dice_Interface/Roll_Button/D4_Button" method="counterChange"]
