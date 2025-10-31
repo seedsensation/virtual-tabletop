@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c71terpc7lfhm"]
+[gd_scene load_steps=6 format=3 uid="uid://c71terpc7lfhm"]
 
 [ext_resource type="Script" uid="uid://2sjg8c7d4xpv" path="res://scripts/DiceType.cs" id="1_hdbyr"]
 [ext_resource type="Script" uid="uid://cdy6hn652nhdy" path="res://scripts/GameSystem.cs" id="1_p7i7v"]
 [ext_resource type="Script" uid="uid://b7dq3a0g6ann2" path="res://scripts/selectCharSheet.cs" id="3_71ewm"]
+[ext_resource type="Script" uid="uid://d4cvjucpyayre" path="res://scripts/SaveSheetChoice.cs" id="4_cjho7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_71ewm"]
 
 [node name="System Editor" type="Control"]
 layout_mode = 3
@@ -14,41 +17,44 @@ grow_vertical = 2
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 649.0
-color = Color(0.86036915, 0.8603692, 0.8603692, 1)
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 347.0
+offset_bottom = 352.0
+color = Color(0.37413907, 0.3741394, 0.37413898, 1)
 script = ExtResource("1_p7i7v")
 
 [node name="TitleLbl" type="Label" parent="."]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 16.0
-offset_right = 218.0
-offset_bottom = 39.0
+offset_left = 32.0
+offset_top = 9.0
+offset_right = 213.0
+offset_bottom = 32.0
 text = "System editor template"
 
 [node name="SheatLbl" type="Label" parent="."]
 layout_mode = 0
-offset_left = 590.0
-offset_top = 64.0
-offset_right = 1002.0
-offset_bottom = 87.0
+offset_left = 32.0
+offset_top = 147.0
+offset_right = 284.0
+offset_bottom = 170.0
 text = "Choose which character sheets"
 
 [node name="DiceLbl" type="Label" parent="."]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 69.0
-offset_right = 239.0
-offset_bottom = 92.0
-text = "System editor template"
+offset_left = 32.0
+offset_top = 51.0
+offset_right = 213.0
+offset_bottom = 74.0
+text = "Dice type"
+label_settings = SubResource("LabelSettings_71ewm")
 
 [node name="DiceTypeDbx" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 110.0
-offset_right = 348.0
-offset_bottom = 141.0
+offset_left = 32.0
+offset_top = 86.0
+offset_right = 319.0
+offset_bottom = 117.0
 item_count = 3
 popup/item_0/text = "Dice pool"
 popup/item_0/id = 0
@@ -60,18 +66,31 @@ script = ExtResource("1_hdbyr")
 
 [node name="SelectSheetPlayer" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 570.0
-offset_top = 115.0
-offset_right = 967.0
-offset_bottom = 135.0
+offset_left = 32.0
+offset_top = 184.0
+offset_right = 319.0
+offset_bottom = 214.0
+accessibility_name = "player"
 script = ExtResource("3_71ewm")
 
 [node name="SelectSheetEnemy" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 566.0
-offset_top = 231.0
-offset_right = 850.0
-offset_bottom = 251.0
+offset_left = 32.0
+offset_top = 235.0
+offset_right = 319.0
+offset_bottom = 265.0
 script = ExtResource("3_71ewm")
 
+[node name="SaveSheetChoice" type="Button" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 293.0
+offset_right = 235.0
+offset_bottom = 324.0
+text = "save choice"
+script = ExtResource("4_cjho7")
+
 [connection signal="item_selected" from="DiceTypeDbx" to="DiceTypeDbx" method="itemSelected"]
+[connection signal="item_selected" from="SelectSheetPlayer" to="SelectSheetPlayer" method="readChoice"]
+[connection signal="item_selected" from="SelectSheetEnemy" to="SelectSheetEnemy" method="readChoice"]
+[connection signal="button_down" from="SaveSheetChoice" to="SaveSheetChoice" method="saveChoice"]
