@@ -15,12 +15,12 @@ public partial class CharacterSheet : Node
 	}
 }
 
-public enum SheetType {
-	TypeInt,
-	TypeFloat,
-	TypeString,
-	TypeBool,
-	TypeDepletable,
+public enum SheetType : int {
+	TypeInt = 1,
+	TypeFloat = 2,
+	TypeString = 3,
+	TypeBool = 4,
+	TypeDepletable = 5,
 }
 
 public class SheetTemplate {
