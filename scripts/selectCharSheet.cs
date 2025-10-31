@@ -24,7 +24,7 @@ public partial class selectCharSheet : OptionButton
 		string[] fileNames = Directory.GetFiles("data");
 		for (int i = 0; i < fileNames.Length; i++)
 		{
-			this.AddItem("temp");
+			this.AddItem(fileNames[i].Remove(0,5));
 		}
 	}
 }
