@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c71terpc7lfhm"]
+[gd_scene load_steps=4 format=3 uid="uid://c71terpc7lfhm"]
 
-[ext_resource type="Script" uid="uid://2sjg8c7d4xpv" path="res://system-editor/DiceType.cs" id="1_hdbyr"]
+[ext_resource type="Script" uid="uid://2sjg8c7d4xpv" path="res://scripts/DiceType.cs" id="1_hdbyr"]
 [ext_resource type="Script" uid="uid://cdy6hn652nhdy" path="res://scripts/GameSystem.cs" id="1_p7i7v"]
+[ext_resource type="Script" uid="uid://cn6gr48wmb1ew" path="res://scripts/SheatSelect.cs" id="3_71ewm"]
 
 [node name="System Editor" type="Control"]
 layout_mode = 3
@@ -18,7 +19,7 @@ offset_bottom = 649.0
 color = Color(0.86036915, 0.8603692, 0.8603692, 1)
 script = ExtResource("1_p7i7v")
 
-[node name="Label" type="Label" parent="."]
+[node name="TitleLbl" type="Label" parent="."]
 layout_mode = 0
 offset_left = 37.0
 offset_top = 16.0
@@ -26,7 +27,23 @@ offset_right = 218.0
 offset_bottom = 39.0
 text = "System editor template"
 
-[node name="DiceType" type="OptionButton" parent="."]
+[node name="SheatLbl" type="Label" parent="."]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 64.0
+offset_right = 1002.0
+offset_bottom = 87.0
+text = "Choose which character sheets"
+
+[node name="DiceLbl" type="Label" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 69.0
+offset_right = 239.0
+offset_bottom = 92.0
+text = "System editor template"
+
+[node name="DiceTypeDbx" type="OptionButton" parent="."]
 layout_mode = 0
 offset_left = 61.0
 offset_top = 110.0
@@ -41,5 +58,12 @@ popup/item_2/text = "modifier (D&D))"
 popup/item_2/id = 2
 script = ExtResource("1_hdbyr")
 
-[connection signal="item_selected" from="DiceType" to="DiceType" method="itemSelected"]
-[connection signal="item_selected" from="DiceType" to="DiceType" method="_on_item_selected"]
+[node name="SheatSelect" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 571.0
+offset_top = 87.0
+offset_right = 1026.0
+offset_bottom = 549.0
+script = ExtResource("3_71ewm")
+
+[connection signal="item_selected" from="DiceTypeDbx" to="DiceTypeDbx" method="itemSelected"]

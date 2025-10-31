@@ -1,9 +1,11 @@
 using Godot;
 using System;
+using System.Threading.Tasks.Dataflow;
 
 public partial class DiceType : OptionButton
 {
-	
+	[Export]
+	public string diceSelected;
 	string currentDice, tempDice;
 	int index;
 	
@@ -26,7 +28,7 @@ public partial class DiceType : OptionButton
 		currentDice = GetItemText(index);
 		if (currentDice != tempDice)
 		{
-			GD.Print(currentDice);
+			diceSelected = currentDice;
 		}
 
 		tempDice = currentDice;
