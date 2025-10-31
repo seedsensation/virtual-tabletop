@@ -9,6 +9,9 @@ To do so, we will create a system creator in Godot - allowing you to create cust
     - [ ] Data Storage
 - [ ] Character Sheet Editor
 - [ ] Dice Rolling
+    - [X] Basic rolling functionality
+    - [ ] Custom DX functionality
+    - [ ] Custom + and - from total roll
     - [ ] Multiple dice systems available
 - [ ] UI that makes everything accessible
 
