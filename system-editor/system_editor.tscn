@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://c71terpc7lfhm"]
+[gd_scene load_steps=3 format=3 uid="uid://c71terpc7lfhm"]
+
+[ext_resource type="Script" uid="uid://2sjg8c7d4xpv" path="res://system-editor/DiceType.cs" id="1_hdbyr"]
+[ext_resource type="Script" uid="uid://cdy6hn652nhdy" path="res://scripts/GameSystem.cs" id="1_p7i7v"]
 
 [node name="System Editor" type="Control"]
 layout_mode = 3
@@ -8,8 +11,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 649.0
+color = Color(0.86036915, 0.8603692, 0.8603692, 1)
+script = ExtResource("1_p7i7v")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 37.0
+offset_top = 16.0
+offset_right = 218.0
+offset_bottom = 39.0
 text = "System editor template"
+
+[node name="DiceType" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 110.0
+offset_right = 348.0
+offset_bottom = 141.0
+item_count = 3
+popup/item_0/text = "Dice pool"
+popup/item_0/id = 0
+popup/item_1/text = "Under total"
+popup/item_1/id = 1
+popup/item_2/text = "modifier (D&D))"
+popup/item_2/id = 2
+script = ExtResource("1_hdbyr")
+
+[connection signal="item_selected" from="DiceType" to="DiceType" method="itemSelected"]
+[connection signal="item_selected" from="DiceType" to="DiceType" method="_on_item_selected"]
