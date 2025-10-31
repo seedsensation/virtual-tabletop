@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://c37i1iy66l0gg"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_xb563"]
+script/source = "using Godot;
+using System;
+
+public partial class Roll_Button : Button
+{
+	//OKAY
+	//dice random bullshit idk
+
+	
+
+	//The structure of this thing
+
+	//starting with ONE DICE BEING ROLLED
+	//look at the dice # being rolled
+	//rand.Next(1, dicenumber)
+	//this includes if you input a custom dice number
+	//but check that it's not negative first pretty please I'm not calculating that
+	//then, you might need to roll multiple dice
+	//for each different dice type
+	//for every dice rolled
+	//generate random number and shove into a list
+	//then output list in chronological order (don't reorder, it won't feel natural)
+	//you can perform operations on the list depending on requested output
+	//including highlighting the highest and so on
+	
+	public void toggleVisibility()
+	{
+		this.Visible = !this.Visible;
+	}
+
+   	public override void _Ready() {
+		Random rand = new Random();
+
+		int diceType = 6;
+		GD.Print(rand.Next(1, diceType));
+		
+	}
+
+	
+	
+}
+"
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 7.0
+offset_right = 1143.0
+offset_bottom = 38.0
+text = "Placeholder Button"
+script = SubResource("CSharpScript_xb563")
+
+[node name="Roll_Button" type="Button" parent="Button"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 388.0
+offset_right = 161.0
+offset_bottom = 445.0
+text = "Roll!"
+
+[node name="D20_Button" type="Button" parent="Button/Roll_Button"]
+layout_mode = 0
+offset_top = -348.0
+offset_right = 87.0
+offset_bottom = -291.0
+text = "D20"

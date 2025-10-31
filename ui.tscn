@@ -1,21 +1,105 @@
-[gd_scene format=3 uid="uid://bvngdlnuarytg"]
+[gd_scene load_steps=3 format=3 uid="uid://bvngdlnuarytg"]
+
+[ext_resource type="Script" uid="uid://cd0jcu0tbt4y5" path="res://DiceInterface.cs" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://b1rbnx706r6uc" path="res://DiceButton.cs" id="2_m6e0p"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = 94.0
-offset_right = -86.0
-offset_bottom = 94.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 96.0
-offset_top = -81.0
-offset_right = 411.0
-offset_bottom = -58.0
-text = "This is a basic UI node to be filled in later"
+offset_left = 986.0
+offset_top = 7.0
+offset_right = 1143.0
+offset_bottom = 38.0
+text = "Placeholder Button"
+
+[node name="Dice_Interface" type="Control" parent="Button"]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 34.0
+offset_right = 168.0
+offset_bottom = 455.0
+script = ExtResource("1_fyqef")
+
+[node name="Roll_Button" type="Button" parent="Button/Dice_Interface"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 389.0
+offset_right = 161.0
+offset_bottom = 446.0
+text = "Roll!"
+
+[node name="Dice_Buttons" type="Control" parent="Button/Dice_Interface"]
+anchors_preset = 0
+offset_left = -1.0
+offset_top = -34.0
+offset_right = 39.0
+offset_bottom = 6.0
+
+[node name="D20_Button" type="Button" parent="Button/Dice_Interface/Dice_Buttons"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 40.0
+offset_right = 161.0
+offset_bottom = 97.0
+text = "D20"
+script = ExtResource("2_m6e0p")
+
+[node name="D12_Button" type="Button" parent="Button/Dice_Interface/Dice_Buttons"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 106.0
+offset_right = 162.0
+offset_bottom = 163.0
+text = "D12
+"
+script = ExtResource("2_m6e0p")
+
+[node name="D8_Button" type="Button" parent="Button/Dice_Interface/Dice_Buttons"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 170.0
+offset_right = 162.0
+offset_bottom = 227.0
+text = "D8"
+script = ExtResource("2_m6e0p")
+
+[node name="D6_Button" type="Button" parent="Button/Dice_Interface/Dice_Buttons"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 234.0
+offset_right = 163.0
+offset_bottom = 291.0
+text = "D6
+"
+script = ExtResource("2_m6e0p")
+
+[node name="D4_Button" type="Button" parent="Button/Dice_Interface/Dice_Buttons"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 298.0
+offset_right = 164.0
+offset_bottom = 355.0
+text = "D4"
+script = ExtResource("2_m6e0p")
+
+[node name="DX_Button" type="Button" parent="Button/Dice_Interface/Dice_Buttons"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 360.0
+offset_right = 164.0
+offset_bottom = 417.0
+text = "DX"
+script = ExtResource("2_m6e0p")
+
+[connection signal="button_up" from="Button" to="Button/Dice_Interface" method="toggleVisibility"]
