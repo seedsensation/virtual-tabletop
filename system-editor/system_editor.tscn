@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2sjg8c7d4xpv" path="res://scripts/DiceType.cs" id="1_hdbyr"]
 [ext_resource type="Script" uid="uid://cdy6hn652nhdy" path="res://scripts/GameSystem.cs" id="1_p7i7v"]
-[ext_resource type="Script" uid="uid://cn6gr48wmb1ew" path="res://scripts/SheatSelect.cs" id="3_71ewm"]
+[ext_resource type="Script" uid="uid://b7dq3a0g6ann2" path="res://scripts/selectCharSheet.cs" id="3_71ewm"]
 
 [node name="System Editor" type="Control"]
 layout_mode = 3
@@ -58,12 +58,12 @@ popup/item_2/text = "modifier (D&D))"
 popup/item_2/id = 2
 script = ExtResource("1_hdbyr")
 
-[node name="SheatSelect" type="VBoxContainer" parent="."]
+[node name="selectSheet" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 571.0
-offset_top = 87.0
-offset_right = 1026.0
-offset_bottom = 549.0
+offset_left = 570.0
+offset_top = 115.0
+offset_right = 967.0
+offset_bottom = 135.0
 script = ExtResource("3_71ewm")
 
 [connection signal="item_selected" from="DiceTypeDbx" to="DiceTypeDbx" method="itemSelected"]
