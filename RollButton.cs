@@ -27,6 +27,12 @@ public partial class RollButton : Button
 			GD.Print(diceResults[i]);
 			i++;
 		}
+		foreach (DiceButton diceButton in GetChildren())
+		{
+			diceButton.counter = 0;
+			CounterLabel counterLabel = (CounterLabel)diceButton.GetChild(0);
+			counterLabel.updateText((int)diceButton.counter);
+		}
 		
 	}
 	

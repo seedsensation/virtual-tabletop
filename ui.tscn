@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvngdlnuarytg"]
+[gd_scene load_steps=5 format=3 uid="uid://bvngdlnuarytg"]
 
 [ext_resource type="Script" uid="uid://cd0jcu0tbt4y5" path="res://DiceInterface.cs" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://1qgtc8ccr5qg" path="res://RollButton.cs" id="2_m6e0p"]
 [ext_resource type="Script" uid="uid://b1rbnx706r6uc" path="res://DiceButton.cs" id="3_27fn8"]
+[ext_resource type="Script" uid="uid://be62a4bqb5dkw" path="res://CounterLabel.cs" id="4_nltto"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -53,6 +54,17 @@ text = "D20"
 script = ExtResource("3_27fn8")
 diceType = 20
 
+[node name="D20_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D20_Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.202
+offset_left = -44.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 36.486
+text = "balls"
+script = ExtResource("4_nltto")
+
 [node name="D12_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
 layout_mode = 0
 offset_top = -379.0
@@ -62,6 +74,16 @@ text = "D12
 "
 script = ExtResource("3_27fn8")
 diceType = 12
+
+[node name="D12_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D12_Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.202
+offset_left = -44.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 36.486
+script = ExtResource("4_nltto")
 
 [node name="D10_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
 layout_mode = 0
@@ -73,6 +95,16 @@ text = "D10"
 script = ExtResource("3_27fn8")
 diceType = 10
 
+[node name="D10_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D10_Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.202
+offset_left = -44.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 36.486
+script = ExtResource("4_nltto")
+
 [node name="D8_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
 layout_mode = 0
 offset_top = -253.0
@@ -81,6 +113,16 @@ offset_bottom = -196.0
 text = "D8"
 script = ExtResource("3_27fn8")
 diceType = 8
+
+[node name="D8_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D8_Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.202
+offset_left = -44.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 36.486
+script = ExtResource("4_nltto")
 
 [node name="D6_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
 layout_mode = 0
@@ -93,6 +135,16 @@ text = "D6
 script = ExtResource("3_27fn8")
 diceType = 6
 
+[node name="D6_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D6_Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.202
+offset_left = -44.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 36.486
+script = ExtResource("4_nltto")
+
 [node name="D4_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
 layout_mode = 0
 offset_left = 2.0
@@ -103,6 +155,16 @@ text = "D4"
 script = ExtResource("3_27fn8")
 diceType = 4
 
+[node name="D4_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D4_Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.202
+offset_left = -44.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = 38.486
+script = ExtResource("4_nltto")
+
 [node name="DX_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
 layout_mode = 0
 offset_left = 2.0
@@ -111,6 +173,16 @@ offset_right = 89.0
 offset_bottom = -6.0
 text = "DX"
 script = ExtResource("3_27fn8")
+
+[node name="DX_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/DX_Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.202
+offset_left = -44.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 36.486
+script = ExtResource("4_nltto")
 
 [connection signal="button_up" from="Button" to="Button/Dice_Interface" method="toggleVisibility"]
 [connection signal="button_up" from="Button/Dice_Interface/Roll_Button" to="Button/Dice_Interface/Roll_Button" method="rollDice"]

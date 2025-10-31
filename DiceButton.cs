@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class DiceButton : Button
 {
@@ -23,6 +24,8 @@ public partial class DiceButton : Button
 				counter--;
 				GD.Print(counter);
 				}
+				CounterLabel counterLabel = (CounterLabel)this.GetChild(0);
+				counterLabel.updateText((int)counter);
 			}
 		
 
