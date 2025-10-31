@@ -13,6 +13,7 @@ To do so, we will create a system creator in Godot - allowing you to create cust
     - [ ] Custom DX functionality
     - [ ] Custom + and - from total roll
     - [ ] Multiple dice systems available
+    - [ ] Make it look pretty
 - [ ] UI that makes everything accessible
 
 ## Storage System
