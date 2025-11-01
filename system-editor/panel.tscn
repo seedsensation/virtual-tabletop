@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdmo0dehp448g"]
+
+[ext_resource type="Script" uid="uid://4g7wvexoycg5" path="res://scripts/SheetCreatorPanel.cs" id="1_4fmk0"]
+[ext_resource type="Texture2D" uid="uid://usx3jhtc6vin" path="res://icon.svg" id="2_1qnnc"]
+[ext_resource type="Texture2D" uid="uid://dl1mw7da3bcic" path="res://dirk.png" id="3_xsrbg"]
+
+[node name="Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 763.0
+offset_bottom = 178.0
+script = ExtResource("1_4fmk0")
+
+[node name="Title" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 545.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 42
+placeholder_text = "Field Name"
+autowrap_mode = 2
+
+[node name="FieldType" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 99.0
+offset_right = 356.0
+offset_bottom = 165.0
+theme_override_font_sizes/font_size = 42
+selected = 0
+fit_to_longest_item = false
+item_count = 7
+popup/item_0/text = "Field Type"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "Integer"
+popup/item_1/id = 1
+popup/item_2/text = "Float"
+popup/item_2/id = 2
+popup/item_3/text = "String"
+popup/item_3/id = 3
+popup/item_4/text = "Bool"
+popup/item_4/id = 4
+popup/item_5/text = "Depletable"
+popup/item_5/id = 5
+popup/item_6/text = "Section Header"
+popup/item_6/id = 6
+
+[node name="Demonstration" type="Label" parent="."]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 104.0
+offset_right = 839.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 42
+text = "Type Placeholder"
+
+[node name="DeleteButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 670.0
+offset_top = 14.0
+offset_right = 740.0
+offset_bottom = 84.0
+disabled = true
+icon = ExtResource("2_1qnnc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="DownButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 49.0
+offset_right = 646.0
+offset_bottom = 83.0
+disabled = true
+text = "↓"
+
+[node name="UpButton" type="Button" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 576.0
+offset_top = 13.0
+offset_right = 646.0
+offset_bottom = 47.0
+disabled = true
+text = "↑"
+text_overrun_behavior = 1
+clip_text = true
+
+[node name="Dirk" type="Sprite2D" parent="."]
+position = Vector2(-52, 63.000004)
+scale = Vector2(0.40532544, 0.40532544)
+texture = ExtResource("3_xsrbg")
+
+[connection signal="item_selected" from="FieldType" to="." method="ItemSelected"]
+[connection signal="button_up" from="DeleteButton" to="." method="DeleteButtonPressed"]
+[connection signal="button_up" from="DownButton" to="." method="DownButton"]
+[connection signal="button_up" from="UpButton" to="." method="UpButton"]
