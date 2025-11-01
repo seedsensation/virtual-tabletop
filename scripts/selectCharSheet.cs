@@ -3,6 +3,8 @@ using System;
 using System.IO;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks.Dataflow;
+using System.Collections.Generic;
+using System.Linq;
 
 public partial class selectCharSheet : OptionButton
 {
@@ -23,11 +25,21 @@ public partial class selectCharSheet : OptionButton
 
 	public void chooseSheats()
 	{
-		string[] fileNames = Directory.GetFiles("data");
-		for (int i = 0; i < fileNames.Length; i++)
-		{
-			this.AddItem(fileNames[i].Remove(0, 5));
+		string[] fileNames = Directory.GetFiles(ProjectSettings.GlobalizePath("user://"));
+		var fileNamesCollection =
+			from file in fileNames
+			where file.StartsWith(GetParent().GetNode<TextEdit>("SystemName").Text.ToLower())
+			where file.GetExtension() == "json"
+			select file.GetFile();
+
+		foreach ( string i in fileNamesCollection) {
+			this.AddItem(i);
 		}
+	}
+
+	public void ResetSheets() {
+		this.Clear();
+		this.chooseSheats();
 	}
 
 	public void readChoice(int index)

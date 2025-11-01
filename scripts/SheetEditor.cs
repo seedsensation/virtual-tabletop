@@ -11,6 +11,9 @@ public partial class SheetEditor : Control
 	[Export]
 	public string FolderName = "default";
 
+	[Signal]
+	public delegate void SubmittedEventHandler();
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -80,15 +83,12 @@ public partial class SheetEditor : Control
 			GD.Print("UH OH!");
 		}
 		string data = JsonSerializer.Serialize(template);
-		GD.Print($"user://{this.FolderName}/sheets/{filename}.json");
-		DirAccess.MakeDirAbsolute($"user://{this.FolderName}");
-		DirAccess.MakeDirAbsolute($"user://{this.FolderName}/sheets");
-		GD.Print(filename);
 		// using var saveFile = FileAccess.Open("", FileAccess.ModeFlags.Write);
 		// GD.Print(data);
-		// saveFile.StoreString(data);
+		//  saveFile.StoreString(data);
 		using var file = FileAccess.Open($"user://{this.FolderName}_{filename}.json", FileAccess.ModeFlags.Write);
 		file.StoreString(data);
+		EmitSignal(SignalName.Submitted);
 
 	}
 }
