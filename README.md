@@ -14,7 +14,6 @@ To do so, we will create a system creator in Godot - allowing you to create cust
     - [X] Custom + and - from total roll
     - [X] Multiple dice systems available
     - [ ] Make it look pretty
-
 - [ ] UI that makes everything accessible
 
 ## Storage System

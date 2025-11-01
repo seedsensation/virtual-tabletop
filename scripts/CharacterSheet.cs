@@ -94,5 +94,6 @@ public class Field {
 		this.id = new Random().Next();
 		this.title = title;
 		this.type = type;
+
 	}
 }
