@@ -6,13 +6,20 @@ public partial class SystemEditor : Control
 	public void NewSheet() {
 		GetNode<Control>("SystemMenu").Visible = false;
 		GetNode<Control>("SheetEditor").Visible = true;
+		GetNode<Control>("CharacterSheet").Visible = false;
 	}
 
 	public void SubmittedSheet() {
 		GetNode<Control>("SystemMenu").Visible = true;
 		GetNode<Control>("SheetEditor").Visible = false;
 		GetNode<selectCharSheet>("SystemMenu/SaveSheetChoice/SelectSheetPlayer").ResetSheets();
+	}
 
+	public void CharacterSheetClosed() {
+		GD.Print("Character Sheet Closed");
+		GetNode<Control>("SystemMenu").Visible = true;
+		GetNode<Control>("SheetEditor").Visible = false;
+		GetNode<Control>("CharacterSheet").Visible = false;
 	}
 
 	public void LoadCharacterSheet() {
@@ -20,6 +27,7 @@ public partial class SystemEditor : Control
 		string FileName = ProjectSettings.GlobalizePath("user://" + PlayerSheet.GetItemText(PlayerSheet.GetSelectedId()));
 		var CharacterSheet = GetNode<VirtualTabletop.Types.CharacterSheet>("CharacterSheet");
 		CharacterSheet.FileName = FileName;
+		CharacterSheet.UpdateSheet();
 		CharacterSheet.Visible = true;
 		GetNode<Control>("SystemMenu").Visible = false;
 	}

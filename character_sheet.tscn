@@ -12,17 +12,6 @@ grow_vertical = 2
 script = ExtResource("1_hrdcl")
 FileName = "user://DnD_Character_Sheet.json"
 
-[node name="VScrollBar" type="VScrollBar" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VScrollBar"]
-layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 1198.0
-theme_override_constants/separation = 99
-
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1159.0
@@ -37,5 +26,16 @@ offset_right = 1107.0
 offset_bottom = 122.0
 theme_override_font_sizes/font_size = 42
 text = "X"
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VScrollBar"]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 1198.0
+theme_override_constants/separation = 99
 
 [connection signal="button_up" from="ColorRect/CloseEditor" to="." method="Close"]

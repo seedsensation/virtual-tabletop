@@ -7,6 +7,10 @@ namespace VirtualTabletop.Types;
 
 public partial class CharacterSheet : Control
 {
+	[Signal]
+	delegate void WindowClosedEventHandler();
+
+
 	[Export]
 	public string FileName;
 	public override void _Ready() {
@@ -19,6 +23,7 @@ public partial class CharacterSheet : Control
 
 	public void Close() {
 		this.Visible = false;
+		EmitSignal(SignalName.WindowClosed);
 	}
 
 	public void UpdateSheet() {
@@ -26,36 +31,39 @@ public partial class CharacterSheet : Control
 		foreach ( Node child in this.GetNode("VScrollBar/VBoxContainer").GetChildren() ) {
 			child.QueueFree();
 		}
-
+		GD.Print(FileName);
 		using var file = FileAccess.Open(FileName, FileAccess.ModeFlags.Read);
 		string content = file.GetAsText();
+		GD.Print(content);
 		SheetTemplate template = JsonSerializer.Deserialize<SheetTemplate>(content);
 		foreach (Field i in template.fields) {
-				Control scene;
-				switch (i.type) {
-					case SheetType.TypeInt:
-						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Int.tscn").Instantiate();
-						break;
-					case SheetType.TypeFloat:
-						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Float.tscn").Instantiate();
-						break;
-					case SheetType.TypeString:
-						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/String.tscn").Instantiate();
-						break;
-					case SheetType.TypeBool:
-						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Bool.tscn").Instantiate();
-						break;
-					case SheetType.TypeDepletable:
-						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Depletable.tscn").Instantiate();
-						break;
-					case SheetType.TypeHeader:
-					default:
-						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Header.tscn").Instantiate();
-						break;
-				}
+			GD.Print(i.title);
+			Control scene;
+			switch (i.type) {
+				case SheetType.TypeInt:
+					scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Int.tscn").Instantiate();
+					break;
+				case SheetType.TypeFloat:
+					scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Float.tscn").Instantiate();
+					break;
+				case SheetType.TypeString:
+					scene = (Control)GD.Load<PackedScene>("res://SheetComponents/String.tscn").Instantiate();
+					break;
+				case SheetType.TypeBool:
+					scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Bool.tscn").Instantiate();
+					break;
+				case SheetType.TypeDepletable:
+					scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Depletable.tscn").Instantiate();
+					break;
+				case SheetType.TypeHeader:
+				default:
+					scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Header.tscn").Instantiate();
+					break;
+			}
 
-				scene.GetNode<Label>("Label").Text = i.title;
-				GetNode("VScrollBar/VBoxContainer").AddChild(scene);
+			scene.GetNode<Label>("Label").Text = i.title;
+			GD.Print(scene.GetNode<Label>("Label").Text);
+			this.GetNode("VScrollBar/VBoxContainer").AddChild(scene);
 
 		}
 	}
