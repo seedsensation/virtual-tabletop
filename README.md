@@ -4,11 +4,11 @@ The idea of the project is to create a virtual tabletop - in the vein of Foundry
 To do so, we will create a system creator in Godot - allowing you to create custom character sheets, and set the overarching dice system.
 
 ## Requirements
-- [ ] System Class
-	- [ ] Character Sheet Class
-	- [ ] Data Storage
-- [ ] Character Sheet Editor
-- [ ] Dice Rolling
+- [x] System Class
+	- [x] Character Sheet Class
+	- [x] Data Storage
+- [x] Character Sheet Editor
+- [x] Dice Rolling
     - [X] Basic rolling functionality
     - [X] Custom DX functionality
     - [X] Custom + and - from total roll
