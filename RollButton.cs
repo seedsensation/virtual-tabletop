@@ -52,7 +52,6 @@ public partial class RollButton : Button
 				string outputHighest = "Highest " + Convert.ToString(valueX) + " dice: ";
 				for (int iHighest = 0; iHighest < valueX; iHighest++)
 				{
-					GD.Print(diceResults[0]);
 					if (iHighest != 0)
 					{
 						outputHighest = outputHighest + ", ";
@@ -60,10 +59,29 @@ public partial class RollButton : Button
 					outputHighest = outputHighest + Convert.ToString(diceResults[iHighest]);
 				}
 				GD.Print(outputHighest);
-
 				break;
 
-				
+			case 2:
+				int iL = 0;
+				foreach (int result in diceResults)
+				{
+					GD.Print(diceResults[iL]);
+					
+					iL++;
+				}
+				diceResults.Sort();
+				diceResults.Reverse();
+				string outputLowest = "Lowest " + Convert.ToString(valueX) + " dice: ";
+				for (int iLowest = 0; iLowest < valueX; iLowest++)
+				{
+					if (iLowest != 0)
+					{
+						outputLowest = outputLowest + ", ";
+					}
+					outputLowest = outputLowest + Convert.ToString(diceResults[iLowest]);
+				}
+				GD.Print(outputLowest);
+				break;
 
 			case 3:
 				int countH = 0;
