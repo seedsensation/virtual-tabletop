@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://e8nolapnmxi1"]
+[gd_scene load_steps=3 format=3 uid="uid://da4uhe7kl6l2o"]
 
 [ext_resource type="Script" uid="uid://cd0jcu0tbt4y5" path="res://DiceInterface.cs" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://b1rbnx706r6uc" path="res://DiceButton.cs" id="2_m6e0p"]
