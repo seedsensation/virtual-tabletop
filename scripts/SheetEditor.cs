@@ -74,7 +74,21 @@ public partial class SheetEditor : Control
 			}
 		}
 
-		GD.Print(JsonSerializer.Serialize(template));
+		string filename = template.title;
+		filename = filename.Replace(" ","_");
+		if (!filename.IsValidFileName()) {
+			GD.Print("UH OH!");
+		}
+		string data = JsonSerializer.Serialize(template);
+		GD.Print($"user://{this.FolderName}/sheets/{filename}.json");
+		DirAccess.MakeDirAbsolute($"user://{this.FolderName}");
+		DirAccess.MakeDirAbsolute($"user://{this.FolderName}/sheets");
+		GD.Print(filename);
+		// using var saveFile = FileAccess.Open("", FileAccess.ModeFlags.Write);
+		// GD.Print(data);
+		// saveFile.StoreString(data);
+		using var file = FileAccess.Open($"user://{this.FolderName}_{filename}.json", FileAccess.ModeFlags.Write);
+		file.StoreString(data);
 
 	}
 }
