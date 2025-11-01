@@ -15,7 +15,6 @@ public partial class DxLineEdit : LineEdit
 
 	public void validateInput(string newText)
 	{
-		GD.Print("balls");
 		int diceValue;
 		try
 		{

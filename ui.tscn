@@ -64,7 +64,7 @@ offset_left = -44.0
 offset_top = 8.0
 offset_right = -9.0
 offset_bottom = 36.486
-text = "balls"
+text = "#"
 script = ExtResource("4_nltto")
 
 [node name="D12_Button" type="Button" parent="Button/Dice_Interface/Roll_Button"]
@@ -194,7 +194,6 @@ offset_right = 83.5625
 offset_bottom = 44.0
 theme_override_constants/minimum_character_width = 1
 placeholder_text = "X"
-expand_to_text_length = true
 script = ExtResource("6_n5ude")
 
 [connection signal="gui_input" from="." to="Button/Dice_Interface/Roll_Button/DX_Button/DX_LineEdit" method="deselectLineEdit"]
@@ -207,4 +206,5 @@ script = ExtResource("6_n5ude")
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D6_Button" to="Button/Dice_Interface/Roll_Button/D6_Button" method="counterChange"]
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D4_Button" to="Button/Dice_Interface/Roll_Button/D4_Button" method="counterChange"]
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/DX_Button" to="Button/Dice_Interface/Roll_Button/DX_Button" method="counterChange"]
+[connection signal="text_changed" from="Button/Dice_Interface/Roll_Button/DX_Button/DX_LineEdit" to="Button/Dice_Interface/Roll_Button/DX_Button" method="updateDiceType"]
 [connection signal="text_changed" from="Button/Dice_Interface/Roll_Button/DX_Button/DX_LineEdit" to="Button/Dice_Interface/Roll_Button/DX_Button/DX_LineEdit" method="validateInput"]

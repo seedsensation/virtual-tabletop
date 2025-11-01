@@ -9,7 +9,7 @@ public partial class DiceButton : Button
 	[Export]
 	public int counter;
 
-	public void counterChange(InputEvent inputEvent)
+	public virtual void counterChange(InputEvent inputEvent)
 	{
 		if (inputEvent is InputEventMouseButton mouseEvent)
 			if (mouseEvent.IsReleased())
