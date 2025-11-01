@@ -17,12 +17,10 @@ public partial class DiceButton : Button
 				if (mouseEvent.ButtonIndex == MouseButton.Left)
 				{
 				counter++;
-				GD.Print(counter);
 				}
 				else if (mouseEvent.ButtonIndex == MouseButton.Right && counter > 0)
 				{
 				counter--;
-				GD.Print(counter);
 				}
 				CounterLabel counterLabel = (CounterLabel)this.GetChild(0);
 				counterLabel.updateText((int)counter);
