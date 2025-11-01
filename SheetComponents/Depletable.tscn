@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bihb4aux06nw3"]
+
+[sub_resource type="Theme" id="Theme_hudyu"]
+default_font_size = 42
+
+[sub_resource type="Theme" id="Theme_xoelp"]
+default_font_size = 42
+
+[node name="String" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 301.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 42
+text = "Label"
+
+[node name="Slash" type="Label" parent="."]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 1.0
+offset_right = 531.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 42
+text = "/"
+
+[node name="Min" type="SpinBox" parent="Slash"]
+layout_mode = 0
+offset_left = -201.0
+offset_top = -1.0
+offset_right = -15.0
+offset_bottom = 65.0
+theme = SubResource("Theme_hudyu")
+
+[node name="Max" type="SpinBox" parent="Slash"]
+layout_mode = 0
+offset_left = 41.0
+offset_right = 227.0
+offset_bottom = 66.0
+theme = SubResource("Theme_xoelp")
