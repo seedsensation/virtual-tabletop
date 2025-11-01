@@ -4,7 +4,6 @@ using System.Threading.Tasks.Dataflow;
 
 public partial class DiceType : OptionButton
 {
-	[Export]
 	public string diceSelected;
 	string currentDice, tempDice;
 	int index;

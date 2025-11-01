@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c71terpc7lfhm"]
+[gd_scene load_steps=5 format=3 uid="uid://c71terpc7lfhm"]
 
 [ext_resource type="Script" uid="uid://2sjg8c7d4xpv" path="res://scripts/DiceType.cs" id="1_hdbyr"]
-[ext_resource type="Script" uid="uid://cdy6hn652nhdy" path="res://scripts/GameSystem.cs" id="1_p7i7v"]
 [ext_resource type="Script" uid="uid://b7dq3a0g6ann2" path="res://scripts/selectCharSheet.cs" id="3_71ewm"]
 [ext_resource type="Script" uid="uid://d4cvjucpyayre" path="res://scripts/SaveSheetChoice.cs" id="4_cjho7"]
 
@@ -22,7 +21,6 @@ offset_top = 1.0
 offset_right = 347.0
 offset_bottom = 352.0
 color = Color(0.37413907, 0.3741394, 0.37413898, 1)
-script = ExtResource("1_p7i7v")
 
 [node name="TitleLbl" type="Label" parent="."]
 layout_mode = 0
