@@ -7,12 +7,32 @@ namespace VirtualTabletop.Types;
 
 public partial class CharacterSheet : Node
 {
+	[Export]
+	string FileName;
 	public override void _Ready() {
 		SheetTemplate test = new SheetTemplate();
 		test.fields.Add(new Field("aw",SheetType.TypeString));
 		test.fields.Add(new Field("yeah",SheetType.TypeInt));
 		GD.Print(JsonSerializer.Serialize(test));
+		UpdateSheet();
 	}
+
+	public void UpdateSheet() {
+		GD.Print("Now Deserializing");
+		foreach ( Node child in this.GetChildren() ) {
+			child.QueueFree();
+		}
+
+		using var file = FileAccess.Open(FileName, FileAccess.ModeFlags.Read);
+		string content = file.GetAsText();
+		SheetTemplate template = JsonSerializer.Deserialize<SheetTemplate>(content);
+		foreach (Field i in template.fields) {
+			GD.Print(i.title);
+			GD.Print(i.type);
+		}
+
+	}
+
 }
 
 public enum SheetType : int {
