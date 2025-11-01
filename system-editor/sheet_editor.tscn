@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://svmictxdpcya"]
+[gd_scene load_steps=4 format=3 uid="uid://svmictxdpcya"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_lekay"]
-font_size = 36
+[ext_resource type="Script" uid="uid://da7tv7d8lwe3e" path="res://scripts/SheetEditor.cs" id="1_yhbmr"]
+[ext_resource type="PackedScene" uid="uid://biixxap4hevbm" path="res://panel.tscn" id="2_mmsld"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhbmr"]
 
 [node name="Sheet Editor" type="Control"]
 layout_mode = 3
@@ -12,12 +14,30 @@ offset_top = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yhbmr")
 
-[node name="Label" type="Label" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 15.0
-offset_right = 254.61499
-offset_bottom = 122.0
-text = "Sheet Editor"
-label_settings = SubResource("LabelSettings_lekay")
+offset_right = 773.0
+offset_bottom = 643.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yhbmr")
+
+[node name="PanelContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 99
+
+[node name="Panel" parent="ScrollContainer/PanelContainer" instance=ExtResource("2_mmsld")]
+layout_mode = 2
+deleteEnabled = false
+
+[node name="Button" type="Button" parent="."]
+z_index = 10
+layout_mode = 0
+offset_left = 761.0
+offset_top = 13.0
+offset_right = 1009.5161
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 42
+text = "Add Field"
+
+[connection signal="button_up" from="Button" to="." method="NewPanel"]
