@@ -80,7 +80,7 @@ offset_bottom = 409.0
 text = "save choice"
 script = ExtResource("4_cjho7")
 
-[node name="TextEdit" type="TextEdit" parent="Control/SaveSheetChoice"]
+[node name="SystemName" type="TextEdit" parent="Control/SaveSheetChoice"]
 layout_mode = 0
 offset_left = -74.0
 offset_top = -279.0

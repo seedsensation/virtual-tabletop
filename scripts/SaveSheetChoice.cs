@@ -23,16 +23,17 @@ public partial class SaveSheetChoice : Button
 
 	public void saveChoice()
 	{
-		selectCharSheet selectCharacter = (selectCharSheet)this.GetChild(0);
+		selectCharSheet selectCharacter = GetNode<selectCharSheet>("SelectSheetPlayer");
 		playerSheet = selectCharacter.chosenPlayerSheet;
 
-		selectCharSheet SelectEnemy = (selectCharSheet)this.GetChild(1);
+		selectCharSheet SelectEnemy = GetNode<selectCharSheet>("SelectSheetEnemy");
 		enemySheet = SelectEnemy.chosenEnemySheet;
 
-		DiceType DiceType = (DiceType)this.GetChild(2);
+		DiceType DiceType = GetNode<DiceType>("DiceTypeDbx");
 		dice = DiceType.diceSelected;
 
 		Dictionary<string, string> systemData = new Dictionary<string, string>();
+		systemData.Add("SystemTitle", GetNode<TextEdit>("SystemName").Text);
 		systemData.Add("playerCharacterSheet", playerSheet);
 		systemData.Add("EnemyCharacterSheet", enemySheet);
 		systemData.Add("DiceType", dice);
