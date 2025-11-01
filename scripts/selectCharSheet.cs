@@ -7,7 +7,6 @@ using System.Threading.Tasks.Dataflow;
 public partial class selectCharSheet : OptionButton
 {
 	// Called when the node enters the scene tree for the first time.
-	[Export]
 	public string chosenPlayerSheet, chosenEnemySheet;
 	public override void _Ready()
 	{

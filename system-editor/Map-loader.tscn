@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://72qpy77qchsr"]
+
+[ext_resource type="Script" uid="uid://qh6g0m11prxc" path="res://scripts/Background.cs" id="1_l7smh"]
+[ext_resource type="Script" uid="uid://dgyolhocmmeo1" path="res://scripts/ChooseImage.cs" id="2_8bie2"]
+[ext_resource type="Texture2D" uid="uid://d3ldwycfcagv7" path="res://grid.png" id="3_ol14s"]
+
+[sub_resource type="Theme" id="Theme_byuht"]
+
+[node name="MapLoader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="chooseImage" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 32.0
+offset_right = 556.0
+offset_bottom = 73.0
+script = ExtResource("2_8bie2")
+
+[node name="background" type="TextureRect" parent="chooseImage" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -30.0
+offset_right = 1099.0
+offset_bottom = 620.0
+shortcut_context = NodePath(".")
+theme = SubResource("Theme_byuht")
+script = ExtResource("1_l7smh")
+
+[node name="grid" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 1156.0
+offset_bottom = 650.0
+texture = ExtResource("3_ol14s")
+
+[connection signal="item_selected" from="chooseImage" to="chooseImage" method="pickBackground"]

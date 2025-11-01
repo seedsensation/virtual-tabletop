@@ -8,7 +8,7 @@ using System.IO;
 
 public partial class SaveSheetChoice : Button
 {
-	string PlayerSheet, EnemySheet, Dice; 
+	string playerSheet, enemySheet, dice; 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -24,18 +24,18 @@ public partial class SaveSheetChoice : Button
 	public void saveChoice()
 	{
 		selectCharSheet selectCharacter = (selectCharSheet)this.GetChild(0);
-		PlayerSheet = selectCharacter.chosenPlayerSheet;
+		playerSheet = selectCharacter.chosenPlayerSheet;
 
 		selectCharSheet SelectEnemy = (selectCharSheet)this.GetChild(1);
-		EnemySheet = SelectEnemy.chosenEnemySheet;
+		enemySheet = SelectEnemy.chosenEnemySheet;
 
 		DiceType DiceType = (DiceType)this.GetChild(2);
-		Dice = DiceType.diceSelected;
+		dice = DiceType.diceSelected;
 
 		Dictionary<string, string> systemData = new Dictionary<string, string>();
-		systemData.Add("playerCharacterSheet", PlayerSheet);
-		systemData.Add("EnemyCharacterSheet", EnemySheet);
-		systemData.Add("DiceType", Dice);
+		systemData.Add("playerCharacterSheet", playerSheet);
+		systemData.Add("EnemyCharacterSheet", enemySheet);
+		systemData.Add("DiceType", dice);
 
 		string fileData;
 		fileData = JsonSerializer.Serialize(systemData);
