@@ -5,6 +5,8 @@ public partial class RollTypeMenu : Control
 {
 	[Export]
 	public int x = 1;
+	[Export]
+	public int rollFunction = 0;
 
 	public void toggleVisibility()
 	{
@@ -19,5 +21,10 @@ public partial class RollTypeMenu : Control
 	public void updateX(int inputValue)
 	{
 		this.x = (inputValue);
+	}
+	
+	public void updateFunction(int selectedFunction)
+	{
+		this.rollFunction = (selectedFunction);
 	}
 }
