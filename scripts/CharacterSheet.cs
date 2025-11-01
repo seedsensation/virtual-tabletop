@@ -21,10 +21,12 @@ public enum SheetType : int {
 	TypeString = 3,
 	TypeBool = 4,
 	TypeDepletable = 5,
+	TypeHeader = 6,
 }
 
 public class SheetTemplate {
 	public int id {get; set;}
+	public string title {get; set;}
 
 	public List<Field> fields {get; set;}
 
