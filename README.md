@@ -11,8 +11,8 @@ To do so, we will create a system creator in Godot - allowing you to create cust
 - [ ] Dice Rolling
     - [X] Basic rolling functionality
     - [X] Custom DX functionality
-    - [ ] Custom + and - from total roll
-    - [ ] Multiple dice systems available
+    - [X] Custom + and - from total roll
+    - [X] Multiple dice systems available
     - [ ] Make it look pretty
 
 - [ ] UI that makes everything accessible
