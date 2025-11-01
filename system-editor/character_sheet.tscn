@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdf32pberluck"]
+
+[ext_resource type="Script" uid="uid://dfyn04e6rtrja" path="res://scripts/CharacterSheet.cs" id="1_hrdcl"]
+
+[node name="CharacterSheet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hrdcl")
+FileName = "user://DnD_Character_Sheet.json"
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VScrollBar"]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 1198.0
+theme_override_constants/separation = 99
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1159.0
+offset_bottom = 660.0
+color = Color(0.31061712, 0.31061712, 0.3106171, 1)
+
+[node name="CloseEditor" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 1031.0
+offset_top = 39.0
+offset_right = 1107.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 42
+text = "X"
+
+[connection signal="button_up" from="ColorRect/CloseEditor" to="." method="Close"]
