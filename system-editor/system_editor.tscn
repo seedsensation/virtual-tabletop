@@ -49,38 +49,6 @@ offset_bottom = 74.0
 text = "Dice type"
 label_settings = SubResource("LabelSettings_71ewm")
 
-[node name="DiceTypeDbx" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 86.0
-offset_right = 319.0
-offset_bottom = 117.0
-item_count = 3
-popup/item_0/text = "Dice pool"
-popup/item_0/id = 0
-popup/item_1/text = "Under total"
-popup/item_1/id = 1
-popup/item_2/text = "modifier (D&D))"
-popup/item_2/id = 2
-script = ExtResource("1_hdbyr")
-
-[node name="SelectSheetPlayer" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 184.0
-offset_right = 319.0
-offset_bottom = 214.0
-accessibility_name = "player"
-script = ExtResource("3_71ewm")
-
-[node name="SelectSheetEnemy" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 235.0
-offset_right = 319.0
-offset_bottom = 265.0
-script = ExtResource("3_71ewm")
-
 [node name="SaveSheetChoice" type="Button" parent="."]
 layout_mode = 0
 offset_left = 106.0
@@ -90,7 +58,39 @@ offset_bottom = 324.0
 text = "save choice"
 script = ExtResource("4_cjho7")
 
-[connection signal="item_selected" from="DiceTypeDbx" to="DiceTypeDbx" method="itemSelected"]
-[connection signal="item_selected" from="SelectSheetPlayer" to="SelectSheetPlayer" method="readChoice"]
-[connection signal="item_selected" from="SelectSheetEnemy" to="SelectSheetEnemy" method="readChoice"]
+[node name="SelectSheetPlayer" type="OptionButton" parent="SaveSheetChoice"]
+layout_mode = 0
+offset_left = -74.0
+offset_top = -109.0
+offset_right = 213.0
+offset_bottom = -79.0
+accessibility_name = "player"
+script = ExtResource("3_71ewm")
+
+[node name="SelectSheetEnemy" type="OptionButton" parent="SaveSheetChoice"]
+layout_mode = 0
+offset_left = -74.0
+offset_top = -58.0
+offset_right = 213.0
+offset_bottom = -28.0
+script = ExtResource("3_71ewm")
+
+[node name="DiceTypeDbx" type="OptionButton" parent="SaveSheetChoice"]
+layout_mode = 0
+offset_left = -74.0
+offset_top = -207.0
+offset_right = 213.0
+offset_bottom = -176.0
+item_count = 3
+popup/item_0/text = "Dice pool"
+popup/item_0/id = 0
+popup/item_1/text = "Under total"
+popup/item_1/id = 1
+popup/item_2/text = "modifier (D&D))"
+popup/item_2/id = 2
+script = ExtResource("1_hdbyr")
+
 [connection signal="button_down" from="SaveSheetChoice" to="SaveSheetChoice" method="saveChoice"]
+[connection signal="item_selected" from="SaveSheetChoice/SelectSheetPlayer" to="SaveSheetChoice/SelectSheetPlayer" method="readChoice"]
+[connection signal="item_selected" from="SaveSheetChoice/SelectSheetEnemy" to="SaveSheetChoice/SelectSheetEnemy" method="readChoice"]
+[connection signal="item_selected" from="SaveSheetChoice/DiceTypeDbx" to="SaveSheetChoice/DiceTypeDbx" method="itemSelected"]

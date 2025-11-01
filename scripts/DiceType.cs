@@ -14,7 +14,7 @@ public partial class DiceType : OptionButton
 	public override void _Ready()
 	{
 		Select(0);
-		currentDice = GetItemText(index);
+		diceSelected = GetItemText(index);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

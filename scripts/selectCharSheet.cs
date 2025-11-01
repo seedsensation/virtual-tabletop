@@ -30,18 +30,22 @@ public partial class selectCharSheet : OptionButton
 			this.AddItem(fileNames[i].Remove(0, 5));
 		}
 	}
-	
+
 	public void readChoice(int index)
 	{
 		if (this.Name == "SelectSheetPlayer")
 		{
 			chosenPlayerSheet = GetItemText(index);
-			GD.Print(chosenPlayerSheet);
+			changeValue(chosenPlayerSheet);
 		}
 		else
 		{
 			chosenEnemySheet = GetItemText(index);
-			GD.Print(chosenEnemySheet);
+			changeValue(chosenEnemySheet);
 		}
+	}
+	public string changeValue(string sheet)
+	{
+		return sheet;
 	}
 }
