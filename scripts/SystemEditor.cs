@@ -15,6 +15,19 @@ public partial class SystemEditor : Control
 
 	}
 
+	public void LoadCharacterSheet() {
+		OptionButton PlayerSheet = (OptionButton)this.GetNode("SystemMenu/SaveSheetChoice/SelectSheetPlayer");
+		string FileName = ProjectSettings.GlobalizePath("user://" + PlayerSheet.GetItemText(PlayerSheet.GetSelectedId()));
+		var CharacterSheet = GetNode<VirtualTabletop.Types.CharacterSheet>("CharacterSheet");
+		CharacterSheet.FileName = FileName;
+		CharacterSheet.Visible = true;
+		GetNode<Control>("SystemMenu").Visible = false;
+	}
+
+	public void Close() {
+		this.Visible = false;
+	}
+
 	public void UpdatedText() {
 		GetNode<VirtualTabletop.Sheets.SheetEditor>("SheetEditor").FolderName = GetNode<TextEdit>("SystemMenu/SaveSheetChoice/SystemName").Text;
 	}

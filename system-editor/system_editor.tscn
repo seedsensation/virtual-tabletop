@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c71terpc7lfhm"]
+[gd_scene load_steps=8 format=3 uid="uid://c71terpc7lfhm"]
 
 [ext_resource type="PackedScene" uid="uid://svmictxdpcya" path="res://system-editor/sheet_editor.tscn" id="1_cjho7"]
 [ext_resource type="Script" uid="uid://2sjg8c7d4xpv" path="res://scripts/DiceType.cs" id="1_hdbyr"]
 [ext_resource type="Script" uid="uid://lbgr1f3wk0us" path="res://scripts/SystemEditor.cs" id="1_nfk6a"]
+[ext_resource type="PackedScene" uid="uid://yomwqydtb5i2" path="res://character_sheet.tscn" id="2_xesmb"]
 [ext_resource type="Script" uid="uid://b7dq3a0g6ann2" path="res://scripts/selectCharSheet.cs" id="3_71ewm"]
 [ext_resource type="Script" uid="uid://d4cvjucpyayre" path="res://scripts/SaveSheetChoice.cs" id="4_cjho7"]
 
@@ -17,6 +18,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nfk6a")
+
+[node name="CharacterSheet" parent="." instance=ExtResource("2_xesmb")]
+layout_mode = 1
 
 [node name="SheetEditor" parent="." instance=ExtResource("1_cjho7")]
 visible = false
@@ -78,14 +82,6 @@ offset_bottom = -182.0
 accessibility_name = "player"
 script = ExtResource("3_71ewm")
 
-[node name="SelectSheetEnemy" type="OptionButton" parent="SystemMenu/SaveSheetChoice"]
-layout_mode = 0
-offset_left = 51.0
-offset_top = -252.0
-offset_right = 396.0
-offset_bottom = -186.0
-script = ExtResource("3_71ewm")
-
 [node name="DiceTypeDbx" type="OptionButton" parent="SystemMenu/SaveSheetChoice"]
 layout_mode = 0
 offset_left = 44.0
@@ -100,6 +96,24 @@ popup/item_1/id = 1
 popup/item_2/text = "modifier"
 popup/item_2/id = 2
 script = ExtResource("1_hdbyr")
+
+[node name="CloseEditor" type="Button" parent="SystemMenu/SaveSheetChoice"]
+layout_mode = 0
+offset_left = 536.0
+offset_top = -541.0
+offset_right = 612.0
+offset_bottom = -458.0
+theme_override_font_sizes/font_size = 42
+text = "X"
+
+[node name="LoadSheet" type="Button" parent="SystemMenu/SaveSheetChoice"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = -253.0
+offset_right = 395.0
+offset_bottom = -170.0
+theme_override_font_sizes/font_size = 42
+text = "Load Sheet"
 
 [node name="Labels" type="Control" parent="SystemMenu"]
 anchors_preset = 0
@@ -125,14 +139,6 @@ offset_right = 289.0
 offset_bottom = 332.0
 text = "Player sheet"
 
-[node name="EnemySheetLabel" type="Label" parent="SystemMenu/Labels"]
-layout_mode = 0
-offset_left = 497.0
-offset_top = 264.0
-offset_right = 757.0
-offset_bottom = 322.0
-text = "Enemy sheet"
-
 [node name="DiceLbl" type="Label" parent="SystemMenu/Labels"]
 layout_mode = 0
 offset_left = 496.0
@@ -147,5 +153,6 @@ text = "Dice type"
 [connection signal="text_changed" from="SystemMenu/SaveSheetChoice/SystemName" to="." method="UpdatedText"]
 [connection signal="text_changed" from="SystemMenu/SaveSheetChoice/SystemName" to="SystemMenu/SaveSheetChoice/SelectSheetPlayer" method="ResetSheets"]
 [connection signal="item_selected" from="SystemMenu/SaveSheetChoice/SelectSheetPlayer" to="SystemMenu/SaveSheetChoice/SelectSheetPlayer" method="readChoice"]
-[connection signal="item_selected" from="SystemMenu/SaveSheetChoice/SelectSheetEnemy" to="SystemMenu/SaveSheetChoice/SelectSheetEnemy" method="readChoice"]
 [connection signal="item_selected" from="SystemMenu/SaveSheetChoice/DiceTypeDbx" to="SystemMenu/SaveSheetChoice/DiceTypeDbx" method="itemSelected"]
+[connection signal="button_up" from="SystemMenu/SaveSheetChoice/CloseEditor" to="." method="Close"]
+[connection signal="button_up" from="SystemMenu/SaveSheetChoice/LoadSheet" to="." method="LoadCharacterSheet"]

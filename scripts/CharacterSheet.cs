@@ -5,10 +5,10 @@ using System.Collections.Generic;
 namespace VirtualTabletop.Types;
 
 
-public partial class CharacterSheet : Node
+public partial class CharacterSheet : Control
 {
 	[Export]
-	string FileName;
+	public string FileName;
 	public override void _Ready() {
 		SheetTemplate test = new SheetTemplate();
 		test.fields.Add(new Field("aw",SheetType.TypeString));
@@ -17,9 +17,13 @@ public partial class CharacterSheet : Node
 		UpdateSheet();
 	}
 
+	public void Close() {
+		this.Visible = false;
+	}
+
 	public void UpdateSheet() {
 		GD.Print("Now Deserializing");
-		foreach ( Node child in this.GetNode("VBoxContainer").GetChildren() ) {
+		foreach ( Node child in this.GetNode("VScrollBar/VBoxContainer").GetChildren() ) {
 			child.QueueFree();
 		}
 
@@ -51,7 +55,7 @@ public partial class CharacterSheet : Node
 				}
 
 				scene.GetNode<Label>("Label").Text = i.title;
-				GetNode("VBoxContainer").AddChild(scene);
+				GetNode("VScrollBar/VBoxContainer").AddChild(scene);
 
 		}
 	}
