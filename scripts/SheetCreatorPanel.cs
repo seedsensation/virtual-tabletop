@@ -7,27 +7,38 @@ namespace VirtualTabletop.Sheets;
 public partial class SheetCreatorPanel : Control
 {
 	[Signal]
-	public delegate void MovedUpEventHandler();
+	public delegate void MovedUpEventHandler(int index);
 	[Signal]
-	public delegate void MovedDownEventHandler();
+	public delegate void MovedDownEventHandler(int index);
 	private int _index = 0;
-	[Export]
+	private int _arrayLength = 1;
 	public int index {
 		get {
 			return _index;
 		}
 		set {
 			_index = value;
-			Button upButton = (Button)GetNode("UpButton");
-			Button downButton = (Button)GetNode("DownButton");
-			upButton.Disabled = (_index == 0);
-			downButton.Disabled = (_index == arrayLength-1);
-
+			refreshButtons();
+		}
+	}
+	public int arrayLength {
+		get {
+			return _arrayLength;
+		}
+		set {
+			_arrayLength = value;
+			refreshButtons();
 		}
 	}
 
-	[Export]
-	public int arrayLength = 1;
+	private void refreshButtons() {
+			Button upButton = (Button)GetNode("UpButton");
+			Button downButton = (Button)GetNode("DownButton");
+			upButton.Disabled = (_index == 0);
+			downButton.Disabled = (_index == _arrayLength-1);
+
+	}
+
 	private bool _deleteEnabled = true;
 	[Export]
 	public bool deleteEnabled {
@@ -66,10 +77,10 @@ public partial class SheetCreatorPanel : Control
 	}
 
 	public void UpButton() {
-		EmitSignal(SignalName.MovedUp);
+		EmitSignal(SignalName.MovedUp, index);
 	}
 	public void DownButton() {
-		EmitSignal(SignalName.MovedDown);
+		EmitSignal(SignalName.MovedDown, index);
 
 	}
 

@@ -7,8 +7,8 @@
 [node name="Panel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 560.0
-offset_bottom = 99.0
+offset_right = 763.0
+offset_bottom = 178.0
 script = ExtResource("1_y26ic")
 
 [node name="Title" type="TextEdit" parent="."]
@@ -60,7 +60,6 @@ offset_left = 670.0
 offset_top = 14.0
 offset_right = 740.0
 offset_bottom = 84.0
-disabled = true
 icon = ExtResource("2_ikblc")
 icon_alignment = 1
 expand_icon = true

@@ -2,6 +2,8 @@ using Godot;
 using System;
 using System.Linq;
 
+namespace VirtualTabletop.Sheets;
+
 public partial class SheetEditor : Control
 {
 	// Called when the node enters the scene tree for the first time.
@@ -16,19 +18,37 @@ public partial class SheetEditor : Control
 	}
 	public void NewPanel() {
 		// create a new panel
-		var scene = (Control)GD.Load<PackedScene>("res://panel.tscn").Instantiate();
+		var scene = (SheetCreatorPanel)GD.Load<PackedScene>("res://panel.tscn").Instantiate();
+		scene.MovedUp += PanelMovedUp;
+		scene.MovedDown += PanelMovedDown;
 		GetNode("ScrollContainer/PanelContainer").AddChild(scene);
+		scene.index = GetNode("ScrollContainer/PanelContainer").GetChildren().Count() - 1;
+		RefreshPanelIndices();
 	}
 
 	public void RefreshPanelIndices() {
+		int index = 0;
 		foreach(Node child in GetNode("ScrollContainer/PanelContainer").GetChildren()) {
-			if (child is )
+			if (child is SheetCreatorPanel PanelChild) {
+				PanelChild.index = index;
+				index++;
+				PanelChild.arrayLength = GetNode("ScrollContainer/PanelContainer").GetChildren().Count();
+
+			}
 		}
 	}
-	public void PanelMovedUp() {
-
+	public void PanelMovedUp(int index) {
+		GD.Print(index);
+		var ParentNode = GetNode("ScrollContainer/PanelContainer");
+		var item = (SheetCreatorPanel)(ParentNode.GetChildren()[index]);
+		ParentNode.MoveChild(item, index - 1);
+		RefreshPanelIndices();
 	}
-	public void PanelMovedDown() {
+	public void PanelMovedDown(int index) {
+		var ParentNode = GetNode("ScrollContainer/PanelContainer");
+		var item = (SheetCreatorPanel)(ParentNode.GetChildren()[index]);
+		ParentNode.MoveChild(item, index + 1);
+		RefreshPanelIndices();
 
 	}
 }
