@@ -5,11 +5,11 @@ To do so, we will create a system creator in Godot - allowing you to create cust
 
 ## Requirements
 - [ ] System Class
-    - [ ] Character Sheet Class
-    - [ ] Data Storage
+	- [ ] Character Sheet Class
+	- [ ] Data Storage
 - [ ] Character Sheet Editor
 - [ ] Dice Rolling
-    - [ ] Multiple dice systems available
+	- [ ] Multiple dice systems available
 - [ ] UI that makes everything accessible
 
 ## Storage System
