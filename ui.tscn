@@ -236,6 +236,7 @@ script = ExtResource("6_n5ude")
 [connection signal="button_up" from="Button" to="Button/Dice_Interface" method="toggleVisibility"]
 [connection signal="button_up" from="Button/Dice_Interface/Format_Button" to="Button/Dice_Interface/RollType" method="toggleVisibility"]
 [connection signal="text_changed" from="Button/Dice_Interface/FlatAddition_Button/FA_LineEdit" to="Button/Dice_Interface/FlatAddition_Button/FA_LineEdit" method="validateInput"]
+[connection signal="buttonPressed" from="Button/Dice_Interface/Roll_Button" to="Button/Dice_Interface/FlatAddition_Button/FA_LineEdit" method="resetValue"]
 [connection signal="button_up" from="Button/Dice_Interface/Roll_Button" to="Button/Dice_Interface/Roll_Button" method="rollDice"]
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D20_Button" to="Button/Dice_Interface/Roll_Button/D20_Button" method="counterChange"]
 [connection signal="gui_input" from="Button/Dice_Interface/Roll_Button/D12_Button" to="Button/Dice_Interface/Roll_Button/D12_Button" method="counterChange"]

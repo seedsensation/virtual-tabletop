@@ -18,4 +18,9 @@ public partial class FaLineEdit : LineEdit
 			}
 		}
 	}
+
+	public void resetValue()
+	{
+		this.Clear();
+	}
 }
