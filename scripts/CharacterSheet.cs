@@ -19,7 +19,7 @@ public partial class CharacterSheet : Node
 
 	public void UpdateSheet() {
 		GD.Print("Now Deserializing");
-		foreach ( Node child in this.GetChildren() ) {
+		foreach ( Node child in this.GetNode("VBoxContainer").GetChildren() ) {
 			child.QueueFree();
 		}
 
@@ -27,13 +27,36 @@ public partial class CharacterSheet : Node
 		string content = file.GetAsText();
 		SheetTemplate template = JsonSerializer.Deserialize<SheetTemplate>(content);
 		foreach (Field i in template.fields) {
-			GD.Print(i.title);
-			GD.Print(i.type);
+				Control scene;
+				switch (i.type) {
+					case SheetType.TypeInt:
+						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Int.tscn").Instantiate();
+						break;
+					case SheetType.TypeFloat:
+						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Float.tscn").Instantiate();
+						break;
+					case SheetType.TypeString:
+						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/String.tscn").Instantiate();
+						break;
+					case SheetType.TypeBool:
+						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Bool.tscn").Instantiate();
+						break;
+					case SheetType.TypeDepletable:
+						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Depletable.tscn").Instantiate();
+						break;
+					case SheetType.TypeHeader:
+					default:
+						scene = (Control)GD.Load<PackedScene>("res://SheetComponents/Header.tscn").Instantiate();
+						break;
+				}
+
+				scene.GetNode<Label>("Label").Text = i.title;
+				GetNode("VBoxContainer").AddChild(scene);
+
 		}
-
 	}
-
 }
+
 
 public enum SheetType : int {
 	TypeInt = 1,
