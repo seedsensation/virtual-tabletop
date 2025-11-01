@@ -7,9 +7,9 @@
 [ext_resource type="Script" uid="uid://cvk2g67v7dn7y" path="res://DiceXButton.cs" id="5_ibotj"]
 [ext_resource type="Script" uid="uid://cqqcc3gxgrjnd" path="res://DxLineEdit.cs" id="6_n5ude"]
 [ext_resource type="Script" uid="uid://byw2h6s20ury7" path="res://FaLineEdit.cs" id="7_y4yjw"]
-[ext_resource type="PackedScene" uid="uid://unurocvryug7" path="res://RollType.tscn" id="8_waa4j"]
+[ext_resource type="PackedScene" path="res://RollType.tscn" id="8_waa4j"]
 
-[node name="UI" type="Control"]
+[node name="UI2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,7 +91,6 @@ action_mode = 0
 button_mask = 3
 text = "D20"
 script = ExtResource("3_27fn8")
-diceType = 20
 
 [node name="D20_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D20_Button"]
 layout_mode = 1
@@ -112,7 +111,6 @@ offset_bottom = -382.0
 text = "D12
 "
 script = ExtResource("3_27fn8")
-diceType = 12
 
 [node name="D12_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D12_Button"]
 layout_mode = 1
@@ -132,7 +130,6 @@ offset_right = 84.0
 offset_bottom = -320.0
 text = "D10"
 script = ExtResource("3_27fn8")
-diceType = 10
 
 [node name="D10_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D10_Button"]
 layout_mode = 1
@@ -152,7 +149,6 @@ offset_right = 85.0
 offset_bottom = -256.0
 text = "D8"
 script = ExtResource("3_27fn8")
-diceType = 8
 
 [node name="D8_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D8_Button"]
 layout_mode = 1
@@ -173,7 +169,6 @@ offset_bottom = -192.0
 text = "D6
 "
 script = ExtResource("3_27fn8")
-diceType = 6
 
 [node name="D6_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D6_Button"]
 layout_mode = 1
@@ -192,7 +187,6 @@ offset_right = 87.0
 offset_bottom = -128.0
 text = "D4"
 script = ExtResource("3_27fn8")
-diceType = 4
 
 [node name="D4_Counter_Label" type="Label" parent="Button/Dice_Interface/Roll_Button/D4_Button"]
 layout_mode = 1

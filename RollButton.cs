@@ -20,7 +20,7 @@ public partial class RollButton : Button
 			{
 				for (int count = 0; count < diceButton.counter; count++)
 				{
-					diceResults.Add(rand.Next(1, diceButton.diceType));
+					diceResults.Add(rand.Next(1,diceButton.diceType));
 				}
 			}
 			
