@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://biixxap4hevbm" path="res://panel.tscn" id="2_mmsld"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhbmr"]
+content_margin_bottom = 178.0
 
 [node name="Sheet Editor" type="Control"]
 layout_mode = 3
@@ -19,12 +20,12 @@ script = ExtResource("1_yhbmr")
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_right = 773.0
-offset_bottom = 643.0
+offset_bottom = 536.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_yhbmr")
 
 [node name="PanelContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 99
+theme_override_constants/separation = 178
 
 [node name="Panel" parent="ScrollContainer/PanelContainer" instance=ExtResource("2_mmsld")]
 layout_mode = 2
@@ -33,11 +34,13 @@ deleteEnabled = false
 [node name="Button" type="Button" parent="."]
 z_index = 10
 layout_mode = 0
-offset_left = 761.0
+offset_left = 803.0
 offset_top = 13.0
-offset_right = 1009.5161
+offset_right = 1051.5161
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 42
 text = "Add Field"
 
+[connection signal="MovedDown" from="ScrollContainer/PanelContainer/Panel" to="." method="PanelMovedDown"]
+[connection signal="MovedUp" from="ScrollContainer/PanelContainer/Panel" to="." method="PanelMovedUp"]
 [connection signal="button_up" from="Button" to="." method="NewPanel"]
