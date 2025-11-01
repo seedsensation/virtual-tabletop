@@ -19,51 +19,75 @@ layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
 offset_right = 347.0
-offset_bottom = 352.0
+offset_bottom = 406.0
 color = Color(0.37413907, 0.3741394, 0.37413898, 1)
 
 [node name="TitleLbl" type="Label" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 9.0
-offset_right = 213.0
-offset_bottom = 32.0
-text = "System editor template"
+offset_left = 30.0
+offset_top = 12.0
+offset_right = 211.0
+offset_bottom = 35.0
+text = "System editor"
 
-[node name="SheatLbl" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -2.0
+offset_top = -22.0
+offset_right = 38.0
+offset_bottom = 18.0
+
+[node name="ModuleLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 130.0
+offset_top = 67.0
+offset_right = 213.0
+offset_bottom = 90.0
+text = "Module Name"
+label_settings = SubResource("LabelSettings_71ewm")
+
+[node name="PlayerSheetLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 210.0
 offset_right = 284.0
-offset_bottom = 153.0
+offset_bottom = 233.0
 text = "Player sheet"
 
-[node name="SheatLbl" type="Label" parent="SheatLbl"]
-layout_mode = 0
-offset_top = 70.0
-offset_right = 252.0
-offset_bottom = 93.0
-text = "Enemy sheet"
-
-[node name="DiceLbl" type="Label" parent="."]
+[node name="EnemySheetLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 51.0
+offset_top = 283.0
+offset_right = 284.0
+offset_bottom = 306.0
+text = "Enemy sheet"
+
+[node name="DiceLbl" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 137.0
 offset_right = 213.0
-offset_bottom = 74.0
+offset_bottom = 160.0
 text = "Dice type"
 label_settings = SubResource("LabelSettings_71ewm")
 
-[node name="SaveSheetChoice" type="Button" parent="."]
+[node name="SaveSheetChoice" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 106.0
-offset_top = 293.0
+offset_top = 378.0
 offset_right = 235.0
-offset_bottom = 324.0
+offset_bottom = 409.0
 text = "save choice"
 script = ExtResource("4_cjho7")
 
-[node name="SelectSheetPlayer" type="OptionButton" parent="SaveSheetChoice"]
+[node name="TextEdit" type="TextEdit" parent="Control/SaveSheetChoice"]
+layout_mode = 0
+offset_left = -74.0
+offset_top = -279.0
+offset_right = 213.0
+offset_bottom = -248.0
+
+[node name="SelectSheetPlayer" type="OptionButton" parent="Control/SaveSheetChoice"]
 layout_mode = 0
 offset_left = -74.0
 offset_top = -134.0
@@ -72,7 +96,7 @@ offset_bottom = -104.0
 accessibility_name = "player"
 script = ExtResource("3_71ewm")
 
-[node name="SelectSheetEnemy" type="OptionButton" parent="SaveSheetChoice"]
+[node name="SelectSheetEnemy" type="OptionButton" parent="Control/SaveSheetChoice"]
 layout_mode = 0
 offset_left = -74.0
 offset_top = -58.0
@@ -80,7 +104,7 @@ offset_right = 213.0
 offset_bottom = -28.0
 script = ExtResource("3_71ewm")
 
-[node name="DiceTypeDbx" type="OptionButton" parent="SaveSheetChoice"]
+[node name="DiceTypeDbx" type="OptionButton" parent="Control/SaveSheetChoice"]
 layout_mode = 0
 offset_left = -74.0
 offset_top = -207.0
@@ -95,7 +119,7 @@ popup/item_2/text = "modifier"
 popup/item_2/id = 2
 script = ExtResource("1_hdbyr")
 
-[connection signal="button_down" from="SaveSheetChoice" to="SaveSheetChoice" method="saveChoice"]
-[connection signal="item_selected" from="SaveSheetChoice/SelectSheetPlayer" to="SaveSheetChoice/SelectSheetPlayer" method="readChoice"]
-[connection signal="item_selected" from="SaveSheetChoice/SelectSheetEnemy" to="SaveSheetChoice/SelectSheetEnemy" method="readChoice"]
-[connection signal="item_selected" from="SaveSheetChoice/DiceTypeDbx" to="SaveSheetChoice/DiceTypeDbx" method="itemSelected"]
+[connection signal="button_down" from="Control/SaveSheetChoice" to="Control/SaveSheetChoice" method="saveChoice"]
+[connection signal="item_selected" from="Control/SaveSheetChoice/SelectSheetPlayer" to="Control/SaveSheetChoice/SelectSheetPlayer" method="readChoice"]
+[connection signal="item_selected" from="Control/SaveSheetChoice/SelectSheetEnemy" to="Control/SaveSheetChoice/SelectSheetEnemy" method="readChoice"]
+[connection signal="item_selected" from="Control/SaveSheetChoice/DiceTypeDbx" to="Control/SaveSheetChoice/DiceTypeDbx" method="itemSelected"]
