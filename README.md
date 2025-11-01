@@ -5,8 +5,8 @@ To do so, we will create a system creator in Godot - allowing you to create cust
 
 ## Requirements
 - [ ] System Class
-    - [ ] Character Sheet Class
-    - [ ] Data Storage
+	- [ ] Character Sheet Class
+	- [ ] Data Storage
 - [ ] Character Sheet Editor
 - [ ] Dice Rolling
     - [X] Basic rolling functionality
@@ -14,6 +14,7 @@ To do so, we will create a system creator in Godot - allowing you to create cust
     - [ ] Custom + and - from total roll
     - [ ] Multiple dice systems available
     - [ ] Make it look pretty
+
 - [ ] UI that makes everything accessible
 
 ## Storage System
