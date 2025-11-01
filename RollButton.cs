@@ -5,6 +5,9 @@ using System.Linq;
 
 public partial class RollButton : Button
 {
+	[Signal]
+	public delegate void buttonPressedEventHandler();
+
 	public void rollDice()
 	{
 		Random rand = new Random();
@@ -24,8 +27,18 @@ public partial class RollButton : Button
 		}
 		int i = 0;
 		RollTypeMenu typeSelected = GetParent().GetNode<RollTypeMenu>("RollType");
+		FaLineEdit flatNumber = GetParent().GetNode("FlatAddition_Button").GetNode<FaLineEdit>("FA_LineEdit");
 		int valueX = typeSelected.x;
 		int setting = typeSelected.rollFunction;
+		int flatNum;
+		try
+		{
+			flatNum = Convert.ToInt32(flatNumber.Text);
+		}
+		catch
+		{
+			flatNum = 0;
+		}
 		switch (setting)
 		{
 			case 0:
@@ -36,7 +49,7 @@ public partial class RollButton : Button
 					total += diceResults[i];
 					i++;
 				}
-				GD.Print("Total: " + Convert.ToString(total));
+				GD.Print("Total: " + Convert.ToString(total + flatNum));
 				break;
 
 			case 1:
@@ -119,7 +132,7 @@ public partial class RollButton : Button
 			counterLabel.updateText((int)diceButton.counter);
 		}
 		
-		
+		EmitSignal(SignalName.buttonPressed);
 	}
 	
 	//I need to write different functionality depending on the roll type selected
