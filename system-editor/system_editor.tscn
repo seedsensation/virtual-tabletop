@@ -13,7 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hdbyr")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -34,10 +33,17 @@ text = "System editor template"
 [node name="SheatLbl" type="Label" parent="."]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 147.0
+offset_top = 130.0
 offset_right = 284.0
-offset_bottom = 170.0
-text = "Choose which character sheets"
+offset_bottom = 153.0
+text = "Player sheet"
+
+[node name="SheatLbl" type="Label" parent="SheatLbl"]
+layout_mode = 0
+offset_top = 70.0
+offset_right = 252.0
+offset_bottom = 93.0
+text = "Enemy sheet"
 
 [node name="DiceLbl" type="Label" parent="."]
 layout_mode = 0
@@ -60,9 +66,9 @@ script = ExtResource("4_cjho7")
 [node name="SelectSheetPlayer" type="OptionButton" parent="SaveSheetChoice"]
 layout_mode = 0
 offset_left = -74.0
-offset_top = -109.0
+offset_top = -134.0
 offset_right = 213.0
-offset_bottom = -79.0
+offset_bottom = -104.0
 accessibility_name = "player"
 script = ExtResource("3_71ewm")
 
@@ -85,7 +91,7 @@ popup/item_0/text = "Dice pool"
 popup/item_0/id = 0
 popup/item_1/text = "Under total"
 popup/item_1/id = 1
-popup/item_2/text = "modifier (D&D))"
+popup/item_2/text = "modifier"
 popup/item_2/id = 2
 script = ExtResource("1_hdbyr")
 
