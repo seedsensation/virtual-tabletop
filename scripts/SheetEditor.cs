@@ -1,11 +1,17 @@
 using Godot;
 using System;
 using System.Linq;
+using VirtualTabletop.Types;
+using System.Text.Json;
 
 namespace VirtualTabletop.Sheets;
 
 public partial class SheetEditor : Control
 {
+	[Export]
+	public string FolderName = "default";
+
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -49,6 +55,26 @@ public partial class SheetEditor : Control
 		var item = (SheetCreatorPanel)(ParentNode.GetChildren()[index]);
 		ParentNode.MoveChild(item, index + 1);
 		RefreshPanelIndices();
+
+	}
+	public void ExportTemplate() {
+		GD.Print("HI");
+		var random = new Random();
+		var template = new SheetTemplate {
+			id = random.Next(),
+			title = GetNode<TextEdit>("SheetTitle").Text
+		};
+		foreach (Node node in GetNode("ScrollContainer/PanelContainer").GetChildren()) {
+			if (node is SheetCreatorPanel PanelChild) {
+				Field field =
+					new(PanelChild.GetNode<TextEdit>("Title").Text,
+						(SheetType)PanelChild.GetNode<OptionButton>("FieldType").Selected);
+
+				template.fields.Add(field);
+			}
+		}
+
+		GD.Print(JsonSerializer.Serialize(template));
 
 	}
 }

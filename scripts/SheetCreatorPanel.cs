@@ -72,7 +72,8 @@ public partial class SheetCreatorPanel : Control
 			SheetType.TypeFloat => "1.5",
 			SheetType.TypeString => "Hello World",
 			SheetType.TypeBool => "[  ]",
-			SheetType.TypeDepletable => "10 / 15"
+			SheetType.TypeDepletable => "10 / 15",
+			SheetType.TypeHeader => "Section Heading"
 			};
 	}
 
